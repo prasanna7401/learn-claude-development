@@ -1,6 +1,6 @@
 # Claude API Basics
 
-Getting started with the Anthropic Python SDK - from your first API call to structured JSON output.
+Core fundamentals of the Anthropic Claude API - from making your first request to getting structured output.
 
 ## Prerequisites
 
@@ -12,69 +12,62 @@ Getting started with the Anthropic Python SDK - from your first API call to stru
 
 ### 1. Making a Request
 
-Create an `Anthropic` client, send a single user message via `client.messages.create()`, and print the response. Covers the minimal setup needed to talk to Claude.
+Send your first API call to Claude by creating an Anthropic client, building a messages list with a single user message, and printing the generated response.
 
-**Key concepts:** `Anthropic()` client, `messages.create()`, `model`, `max_tokens`, reading `message.content[0].text`
+**Key concepts:** `Anthropic()` client, `messages.create()`, `model`, `max_tokens`, `message.content[0].text`
 
 ---
 
 ### 2. Multi-Turn Conversations
 
-LLMs are stateless - they don't remember previous turns. This notebook shows how to maintain conversation history by appending user/assistant messages to a list and passing the full list on each call.
+Maintain conversation context by appending user and assistant messages to a list and passing the full history on each API call. Demonstrates how LLMs are stateless and require explicit conversation tracking.
 
-**Key concepts:** message list pattern, helper functions (`add_user_message`, `add_assistant_message`, `chat`), conversation context
+**Key concepts:** conversation history, `role: user`, `role: assistant`, helper functions (`add_user_message`, `add_assistant_message`, `chat`)
 
 ---
 
 ### 3. ChatBot Exercise
 
-Hands-on exercise: build an interactive chatbot loop using Python's `input()` with multi-turn conversation support. Combines the patterns from notebooks 1 and 2 into a working CLI chat.
+Hands-on exercise to build an interactive chatbot using Python's `input()` function in a loop, combining multi-turn conversation tracking with real user input.
 
-**Key concepts:** `while True` loop, `input()`, `KeyboardInterrupt` handling, full conversation flow
+**Key concepts:** `input()` loop, `KeyboardInterrupt` handling, interactive multi-turn chat
 
 ---
 
 ### 4. System Prompts
 
-Use the `system` parameter to define the assistant's role and boundaries. The example builds a **Math Tutor** that gives hints instead of direct answers and refuses off-topic questions.
+Define the assistant's role, behavior, and response boundaries using system prompts. Builds a Math Tutor specialist that gives hints instead of answers and rejects off-topic questions.
 
-**Key concepts:** `system` parameter, role definition, behavioral DOs/DON'Ts, passing `system` via `**params` to handle `None` gracefully
+**Key concepts:** `system` parameter, `**params` dict pattern, role-based prompting, behavioral constraints
 
 ---
 
 ### 5. Temperature
 
-Control response creativity with the `temperature` parameter (0 = deterministic, 1 = creative).
+Control how predictable or creative responses are using the `temperature` parameter (0.0-1.0). Covers tokenization, prediction, and sampling concepts.
 
-| Low (0.0-0.3) | Medium (0.4-0.7) | High (0.8-1.0) |
-|---|---|---|
-| Facts, coding, data extraction | Summaries, education, problem-solving | Brainstorming, creative writing, marketing |
-
-**Key concepts:** `temperature` parameter, tokenization, prediction, sampling
+**Key concepts:** `temperature`, low/medium/high temperature use cases, tokenization, prediction, sampling
 
 ---
 
 ### 6. Response Streaming
 
-Stream responses in real-time instead of waiting for the full completion. Covers two approaches:
-- **Low-level:** `stream=True` with manual event iteration
-- **High-level:** `client.messages.stream()` context manager with `.text_stream`
+Stream responses in real-time instead of waiting for the full response. Covers two approaches: low-level `stream=True` with raw event iteration, and high-level `client.messages.stream()` context manager.
 
-**Key concepts:** `stream=True`, `client.messages.stream()`, event types (`MessageStart`, `ContentBlockDelta`, `MessageStop`), `stream.get_final_message()`
+**Key concepts:** `stream=True`, `client.messages.stream()`, `text_stream`, `get_final_message()`, streaming event types (`RawMessageStartEvent`, `RawContentBlockDeltaEvent`, etc.)
 
 ---
 
-### 7 Structured Response
+### 7. Structured Output
 
-#### 7.1 Structured Response - Prefill Method
+#### 7.1 Prefill Method
 
-Get clean JSON output by pre-filling the assistant turn with `` ```json `` and using `stop_sequences=["```"]` to cut off the closing fence. Works with **Claude 3.x models, and some haiku** (e.g. `claude-3-haiku-20240307`, `claude-haiku-4-5`).
+Get clean JSON output by pre-populating the assistant turn with a JSON code fence and using `stop_sequences` to halt at the closing fence. Works with models that support assistant prefill.
 
-**Key concepts:** assistant prefill, `stop_sequences`, `json.loads()` on raw output
+**Key concepts:** assistant prefill, `stop_sequences`, `json.loads()`, `claude-haiku-4-5`
 
+#### 7.2 System Prompt Method
 
-#### 7.2 Structured Response - System Prompt Method
+Get clean JSON output from Claude 4.x models (which do not support assistant prefill) by using a strong system prompt instruction combined with regex fence stripping as a safety net.
 
-Get clean JSON output using a strong system prompt that instructs the model to return raw JSON only, plus a `re.sub()` safety net to strip any markdown fences. Works with **Claude 4.x models** (e.g. `claude-sonnet-4-6`) which don't support assistant prefill.
-
-**Key concepts:** system prompt for format control, regex cleanup, `json.loads()` validation
+**Key concepts:** system prompt JSON instruction, `re.sub()` fence stripping, `claude-sonnet-4-6`
