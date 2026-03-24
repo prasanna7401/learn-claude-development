@@ -8,8 +8,8 @@ A hands-on learning repository for the Anthropic Claude API using Python. Conten
 
 ## Repository Structure
 
-- `1_Claude_API_Basics/` — Numbered notebooks (1–7) covering core API features: requests, multi-turn conversations, system prompts, temperature, streaming, and structured output
-- `OTHERS/` — Git-ignored scratch area containing a comprehensive reference script (`0_Comprehensive_Reference.py`) and additional notebooks (8–12) covering tool use, vision, extended thinking, token counting, and error handling
+- `1_Claude_API_Basics/` - Numbered notebooks (1-7) covering core API features: requests, multi-turn conversations, system prompts, temperature, streaming, and structured output
+- `OTHERS/` - Git-ignored scratch area containing a comprehensive reference script (`0_Comprehensive_Reference.py`) and additional notebooks (8-12) covering tool use, vision, extended thinking, token counting, and error handling
 
 ## Tech Stack
 
@@ -27,20 +27,21 @@ pip install anthropic python-dotenv
 jupyter notebook
 ```
 
-Each notebook is self-contained — it installs dependencies via `%pip install` in its first cell and loads the API key from `.env` via `dotenv`.
+Each notebook is self-contained - it installs dependencies via `%pip install` in its first cell and loads the API key from `.env` via `dotenv`.
 
 ## Conventions
 
-- **Notebook naming:** `<number>_<Topic_Name>.ipynb` — number determines learning order
+- **Punctuation:** Avoid em dashes; use hyphens (`-`) instead
+- **Notebook naming:** `<number>_<Topic_Name>.ipynb` - number determines learning order
 - **Section folders:** `<number>_<Section_Name>/` (e.g., `1_Claude_API_Basics/`)
-- **Common pattern in all notebooks:** setup cell (pip install + dotenv + client init) → markdown explanation → code cells → output demonstration
+- **Common pattern in all notebooks:** setup cell (pip install + dotenv + client init) -> markdown explanation -> code cells -> output demonstration
 - **Helper functions:** `add_user_message()`, `add_assistant_message()`, `chat()` are redefined per notebook (not shared) to keep each notebook self-contained
 - **`.env` files** live inside section folders (e.g., `1_Claude_API_Basics/.env`) and are git-ignored
-- **`OTHERS/`** is git-ignored entirely — used for personal reference and draft content
+- **`OTHERS/`** is git-ignored entirely - used for personal reference and draft content
 
 ## Key API Patterns Demonstrated
 
-- **Structured output (Claude 3.x):** Assistant prefill with `` ```json `` + `stop_sequences` — see notebook 7.1
-- **Structured output (Claude 4.x):** System prompt instruction + `re.sub()` fence stripping — see notebook 7.2 (Claude 4.x does not support assistant prefill)
-- **Streaming:** Two approaches — low-level `stream=True` with event iteration, and high-level `client.messages.stream()` context manager
+- **Structured output (Claude 3.x):** Assistant prefill with `` ```json `` + `stop_sequences` - see notebook 7.1
+- **Structured output (Claude 4.x):** System prompt instruction + `re.sub()` fence stripping - see notebook 7.2 (Claude 4.x does not support assistant prefill)
+- **Streaming:** Two approaches - low-level `stream=True` with event iteration, and high-level `client.messages.stream()` context manager
 - **System prompt passing:** Uses `**params` dict pattern to conditionally include `system` only when not `None`

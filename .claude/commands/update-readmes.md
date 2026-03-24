@@ -33,9 +33,9 @@ Built with Claude API - For developers
 
 ## <N>. <Section Name (spaces)>
 
-| # | Notebook | Summary |
-|---|----------|---------|
-| <num> | `<filename>` | <short summary ~120 chars> |
+| # | Topic | Summary |
+|---|-------|---------|
+| <num> | [<Topic Name>](<section_dir>/<filename>) | <short summary ~120 chars> |
 ...
 
 (repeat ## block for each section, in order)
@@ -43,8 +43,8 @@ Built with Claude API - For developers
 
 Rules:
 - Section heading uses the directory name with underscores replaced by spaces, prefixed by section number and a dot (e.g. `## 1. Claude API Basics`)
-- Table rows use the notebook number (including sub-numbers like `7.1`), the filename in backticks, and the short summary
-- No trailing blank lines between sections — just one blank line before each `##`
+- Table rows use the notebook number (including sub-numbers like `7.1`), the topic name as a hyperlink to the notebook file (path relative to repo root, e.g. `[Making a Request](1_Claude_API_Basics/1_Making_request.ipynb)`), and the short summary
+- No trailing blank lines between sections - just one blank line before each `##`
 - Do NOT include any reference to `OTHERS/`
 
 ## Step 5: Write Section `README.md` Files
@@ -65,9 +65,8 @@ For each section, overwrite `<section_dir>/README.md` with this structure:
 ## Notebooks
 
 ### <N>. <Title>
-[`<filename>`](<filename>)
 
-<Long description — 1-2 sentences.>
+<Long description - 1-2 sentences.>
 
 **Key concepts:** <comma-separated list>
 
@@ -82,15 +81,11 @@ For each section, overwrite `<section_dir>/README.md` with this structure:
 ### <Parent#> <Parent Title>
 
 #### <Sub#> <Sub Title>
-[`<filename>`](<filename>)
-
 <Long description>
 
 **Key concepts:** <list>
 
 #### <Sub#> <Sub Title>
-[`<filename>`](<filename>)
-
 <Long description>
 
 **Key concepts:** <list>
@@ -104,7 +99,7 @@ After writing all READMEs:
 
 1. **Coverage check:** Confirm every `.ipynb` file in every section directory has a corresponding entry in both the root README table and the section README.
 2. **No OTHERS references:** Grep all generated READMEs to confirm `OTHERS` does not appear anywhere.
-3. **Link correctness:** Confirm all notebook links in section READMEs use the bare filename (relative link within the same directory), not absolute paths.
+3. **Link correctness:** Confirm all notebook links in the root README use paths relative to the repo root (e.g. `1_Claude_API_Basics/1_Making_request.ipynb`). Section READMEs should NOT contain notebook file links.
 4. **Count match:** Confirm the total notebook count in the root README matches the sum across all section READMEs.
 
 Report the results of these checks to the user.
