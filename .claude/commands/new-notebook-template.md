@@ -24,7 +24,7 @@ Then:
 
 # Load environment variables from .env file
 from dotenv import load_dotenv
-
+load_dotenv()
 # Create API client
 from anthropic import Anthropic
 

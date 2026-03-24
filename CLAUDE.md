@@ -45,3 +45,8 @@ Each notebook is self-contained - it installs dependencies via `%pip install` in
 - **Structured output (Claude 4.x):** System prompt instruction + `re.sub()` fence stripping - see notebook 7.2 (Claude 4.x does not support assistant prefill)
 - **Streaming:** Two approaches - low-level `stream=True` with event iteration, and high-level `client.messages.stream()` context manager
 - **System prompt passing:** Uses `**params` dict pattern to conditionally include `system` only when not `None`
+
+
+### Formatting recommendations
+
+- Instead of using em dashes, prefer hypens
