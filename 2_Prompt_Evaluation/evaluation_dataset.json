@@ -1,0 +1,17 @@
+[
+  {
+    "task": "Parse an AWS S3 bucket name and region from a full S3 URI (e.g., 's3://my-bucket-name/path/to/object') and return them as separate values",
+    "format": "regex",
+    "solution_criteria": "The regex should correctly extract the bucket name and optional region from various S3 URI formats, handling edge cases like bucket names with hyphens and numbers"
+  },
+  {
+    "task": "Create a Python function that validates an AWS IAM role ARN format and returns True if valid, False otherwise. Valid format: arn:aws:iam::ACCOUNT_ID:role/ROLE_NAME",
+    "format": "python",
+    "solution_criteria": "The function should validate the ARN structure, ensure ACCOUNT_ID is 12 digits, and ROLE_NAME contains only alphanumeric characters, hyphens, and underscores"
+  },
+  {
+    "task": "Generate a JSON CloudFormation template snippet that defines an AWS Lambda function resource with basic properties including function name, runtime (Python 3.11), and a placeholder IAM role ARN",
+    "format": "json",
+    "solution_criteria": "The JSON should follow CloudFormation syntax, include required properties (Type, Properties), use proper resource naming conventions, and be valid JSON that can be parsed"
+  }
+]
