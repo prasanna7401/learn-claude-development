@@ -23,9 +23,28 @@ Read each `.ipynb` file and extract:
 - **Long description:** 1-2 sentences explaining what the notebook teaches. Pull from early markdown cells.
 - **Key concepts:** a comma-separated list of the main API features, parameters, or patterns demonstrated. Look for bold terms, code references, and parameter names in both markdown and code cells.
 
-## Step 4: Write Root `README.md`
+## Step 3.5: Diff Against Existing READMEs
 
-Overwrite the root `README.md` with this exact structure:
+Before writing any README, read each existing section README and root README. Compare the current notebook inventory (from Steps 1-3) against what each README already documents:
+
+1. **Identify changes:** Classify each notebook as:
+   - **Unchanged** - present on disk AND already documented in the README with the same filename
+   - **New** - present on disk but missing from the README
+   - **Removed** - documented in the README but no longer on disk
+   - **Renamed** - filename changed (old entry in README, new file on disk)
+
+2. **Preserve existing content verbatim:**
+   - For **section READMEs**: keep existing descriptions, key concepts, and all prose for unchanged notebooks exactly as written - do not rephrase, reword, or restructure them
+   - For **root README**: keep existing summary text for unchanged notebooks exactly as written
+   - Only generate new descriptions/summaries for notebooks classified as **new**
+   - Remove entries for notebooks classified as **removed**
+   - For **renamed** notebooks, update the filename/link but preserve the existing description
+
+3. **Skip writing if no changes:** If a README's notebook inventory is identical to what is on disk (no new, removed, or renamed notebooks), do NOT rewrite the file at all.
+
+## Step 4: Update Root `README.md`
+
+Update the root `README.md` preserving existing content for unchanged notebooks. Use this structure:
 
 ```markdown
 # learn-claude-development
@@ -47,9 +66,9 @@ Rules:
 - No trailing blank lines between sections - just one blank line before each `##`
 - Do NOT include any reference to `OTHERS/`
 
-## Step 5: Write Section `README.md` Files
+## Step 5: Update Section `README.md` Files
 
-For each section, overwrite `<section_dir>/README.md` with this structure:
+For each section, update `<section_dir>/README.md` preserving existing content for unchanged notebooks. Never rephrase existing descriptions or key concepts - only add entries for new notebooks and remove entries for deleted ones. Use this structure:
 
 ```markdown
 # <Section Name (spaces)>
