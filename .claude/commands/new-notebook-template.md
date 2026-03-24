@@ -32,7 +32,33 @@ client = Anthropic()
 model = "claude-sonnet-4-6"
 ```
 
-**Cell 3 — Empty code cell** ready for implementation.
+**Cell 3 - Helper functions**
+```python
+def add_user_message(messages, text):
+    messages.append({"role": "user", "content": text})
+
+def add_assistant_message(messages, text):
+    messages.append({"role": "assistant", "content": text})
+
+def chat(messages, system=None, temperature=0.5):
+    params = {
+        "model": model,
+        "max_tokens": 1000,
+        "messages": messages,
+        "temperature": temperature,
+    }
+    if system:
+        params["system"] = system
+
+    response = client.messages.create(**params)
+    return response.content[0].text
+
+messages = []
+
+
+```
+
+**Cell 4 — Empty code cell** ready for implementation.
 
 3. Check if `.env` exists in that directory. If not, look for `.env` in any sibling section folder and copy it, or prompt the user to create one with `ANTHROPIC_API_KEY=sk-ant-...`.
 
