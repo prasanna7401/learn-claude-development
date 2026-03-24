@@ -68,7 +68,7 @@ Stream responses in real-time instead of waiting for the full completion. Covers
 
 #### 7.1 Structured Response - Prefill Method
 
-Get clean JSON output by pre-filling the assistant turn with `` ```json `` and using `stop_sequences=["```"]` to cut off the closing fence. Works with **Claude 3.x models** (e.g. `claude-3-haiku-20240307`).
+Get clean JSON output by pre-filling the assistant turn with `` ```json `` and using `stop_sequences=["```"]` to cut off the closing fence. Works with **Claude 3.x models, and some haiku** (e.g. `claude-3-haiku-20240307`, `claude-haiku-4-5`).
 
 **Key concepts:** assistant prefill, `stop_sequences`, `json.loads()` on raw output
 
