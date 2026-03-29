@@ -20,7 +20,7 @@ Then:
 **Cell 2 — Code (setup):**
 ```python
 # Install dependencies
-%pip install anthropic python-dotenv
+%pip install -q anthropic python-dotenv
 
 # Load environment variables from .env file
 from dotenv import load_dotenv
