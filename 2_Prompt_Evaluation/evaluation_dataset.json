@@ -1,17 +1,17 @@
 [
   {
-    "task": "Parse an AWS S3 bucket name and region from a full S3 URI (e.g., 's3://my-bucket-name/path/to/object') and return them as separate values",
+    "task": "Parse an AWS S3 bucket name from a full S3 URI (e.g., 's3://my-bucket-name/path/to/object') and extract only the bucket name",
     "format": "regex",
-    "solution_criteria": "The regex should correctly extract the bucket name and optional region from various S3 URI formats, handling edge cases like bucket names with hyphens and numbers"
+    "solution_criteria": "The regex should correctly extract bucket names from various S3 URI formats, handle hyphens and numbers in bucket names, and not match invalid characters"
   },
   {
-    "task": "Create a Python function that validates an AWS IAM role ARN format and returns True if valid, False otherwise. Valid format: arn:aws:iam::ACCOUNT_ID:role/ROLE_NAME",
+    "task": "Create a Python function that validates an AWS IAM role ARN format and returns True if valid, False otherwise. ARN format: arn:aws:iam::account-id:role/role-name",
     "format": "python",
-    "solution_criteria": "The function should validate the ARN structure, ensure ACCOUNT_ID is 12 digits, and ROLE_NAME contains only alphanumeric characters, hyphens, and underscores"
+    "solution_criteria": "The function should validate the ARN structure, ensure account-id is 12 digits, verify role-name contains only alphanumeric characters and hyphens, and handle edge cases"
   },
   {
-    "task": "Generate a JSON CloudFormation template snippet that defines an AWS Lambda function resource with basic properties including function name, runtime (Python 3.11), and a placeholder IAM role ARN",
+    "task": "Generate a JSON configuration object for an AWS Lambda environment variables setup that includes database connection details (host, port, username) and feature flags (debug_mode, enable_logging)",
     "format": "json",
-    "solution_criteria": "The JSON should follow CloudFormation syntax, include required properties (Type, Properties), use proper resource naming conventions, and be valid JSON that can be parsed"
+    "solution_criteria": "The JSON should have proper structure with nested objects, use appropriate data types for each variable, include placeholder values that follow AWS naming conventions, and be valid JSON"
   }
 ]
