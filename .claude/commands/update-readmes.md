@@ -81,6 +81,8 @@ For each section, update `<section_dir>/README.md` preserving existing content f
 - `anthropic` and `python-dotenv` packages
 - An Anthropic API key in a `.env` file (`ANTHROPIC_API_KEY=sk-...`)
 
+---
+
 ## Notebooks
 
 ### <N>. <Title>

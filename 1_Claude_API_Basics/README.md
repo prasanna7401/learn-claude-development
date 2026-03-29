@@ -8,6 +8,8 @@ Core fundamentals of the Anthropic Claude API - from making your first request t
 - `anthropic` and `python-dotenv` packages
 - An Anthropic API key in a `.env` file (`ANTHROPIC_API_KEY=sk-...`)
 
+---
+
 ## Notebooks
 
 ### 1. Making a Request

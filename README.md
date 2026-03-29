@@ -20,3 +20,9 @@ Built with Claude API - For developers
 |---|-------|---------|
 | 1.1 | [Prompt Eval Workflow](2_Prompt_Evaluation/1_1_Prompt_Eval_Workflow.ipynb) | Build a prompt evaluation pipeline - generate test datasets, run prompts, and score outputs |
 | 1.2 | [Grading Strategies](2_Prompt_Evaluation/1_2_Grading_Strategies.ipynb) | Implement model-based and code-based grading to score prompt outputs on quality and syntax validity |
+
+## 3. Prompt Engineering
+
+| # | Topic | Summary |
+|---|-------|---------|
+| 1 | [Advanced Prompt Evaluation Workflow](3_Prompt_Engineering/1_Advanced_Prompt_Evaluation_Workflow.ipynb) | End-to-end workflow combining prompt engineering principles with automated evaluation and HTML reporting |

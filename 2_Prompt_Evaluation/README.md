@@ -8,6 +8,8 @@ Systematic approaches to evaluating and scoring prompt quality using evaluation 
 - `anthropic` and `python-dotenv` packages
 - An Anthropic API key in a `.env` file (`ANTHROPIC_API_KEY=sk-...`)
 
+---
+
 ## Notebooks
 
 ### 1. Prompt Eval Workflow
@@ -23,3 +25,5 @@ Build an end-to-end prompt evaluation pipeline: generate test datasets using a c
 Implement two grading approaches - model-based grading (LLM scores for quality, completeness, and reasoning) and code-based grading (programmatic syntax validation for JSON, Python, and regex) - then combine them into an averaged score.
 
 **Key concepts:** model-based grading, code-based grading, `grade_by_model()`, `grade_by_syntax()`, `ast.parse()`, `json.loads()`, `re.compile()`, combined scoring
+
+---
