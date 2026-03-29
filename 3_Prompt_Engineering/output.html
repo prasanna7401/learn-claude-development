@@ -1,0 +1,1217 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">7.9 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">90.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with multiple food allergies (nuts, shellfish, dairy) to verify safe meal alternatives</td>
+                <td class="prompt-inputs"><strong>height:</strong> 172 cm<br><strong>weight:</strong> 70 kg<br><strong>goal:</strong> maintain weight<br><strong>restrictions:</strong> allergic to nuts, shellfish, and dairy</td>
+                <td class="criteria">• All meals are free from nuts, shellfish, and dairy<br>• Meal plan is structured for one day with breakfast, lunch, and dinner<br>• Plan is clear and concise with practical food choices</td>
+                <td class="output"><pre># One-Day Athletic Meal Plan
+**Athlete: 172 cm, 70 kg | Goal: Weight Maintenance**
+
+---
+
+## Daily Nutrition Target
+- **Calories:** 2,550 kcal
+- **Protein:** 140g (22%)
+- **Carbohydrates:** 319g (50%)
+- **Fat:** 71g (25%)
+
+*Based on moderate activity level and weight maintenance*
+
+---
+
+## MEAL PLAN
+
+### **BREAKFAST** | 7:00 AM
+**Oatmeal Power Bowl**
+- Rolled oats: 60g
+- Banana: 150g
+- Sunflower seed butter: 30g
+- Honey: 15g
+- Water: 240ml
+
+**Nutrition:** 580 kcal | P: 18g | C: 78g | F: 18g
+
+---
+
+### **MID-MORNING SNACK** | 10:00 AM
+**Fruit & Protein**
+- Apple: 180g
+- Beef jerky: 30g
+- Water: 250ml
+
+**Nutrition:** 320 kcal | P: 19g | C: 38g | F: 6g
+
+---
+
+### **LUNCH** | 1:00 PM
+**Grilled Chicken with Rice & Vegetables**
+- Skinless chicken breast: 180g
+- White rice (cooked): 200g
+- Broccoli (steamed): 150g
+- Olive oil: 10g
+- Sea salt & pepper to taste
+
+**Nutrition:** 650 kcal | P: 52g | C: 72g | F: 11g
+
+---
+
+### **PRE-WORKOUT SNACK** | 3:30 PM
+**Simple Carbs & Protein**
+- White bread: 60g
+- Turkey breast slices: 40g
+- Honey: 10g
+
+**Nutrition:** 280 kcal | P: 20g | C: 38g | F: 3g
+
+---
+
+### **DINNER** | 7:00 PM
+**Baked Salmon with Sweet Potato & Greens**
+- Atlantic salmon fillet: 150g
+- Sweet potato (baked): 200g
+- Spinach (sautéed in oil): 100g
+- Olive oil: 12g
+- Lemon juice & herbs
+
+**Nutrition:** 620 kcal | P: 35g | C: 65g | F: 20g
+
+---
+
+### **EVENING SNACK** | 9:30 PM *(Optional)*
+**Light Recovery**
+- Chicken broth-based soup: 300ml
+- Rice cakes: 30g
+- Coconut oil: 5g
+
+**Nutrition:** 100 kcal | P: 8g | C: 10g | F: 3g
+
+---
+
+## HYDRATION
+- **Water:** 2.5-3 liters throughout the day
+- Drink 500ml upon waking
+- 250ml with each meal
+- 500ml during/after workout
+
+---
+
+## KEY NOTES
+✓ **All foods are nut, shellfish, and dairy-free**  
+✓ **Budget-friendly proteins:** chicken, eggs, salmon, turkey, beef  
+✓ **Timing optimized** for athletic performance  
+✓ **Adjust portions** based on actual workout intensity</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements with excellent execution: it provides breakfast, lunch, and dinner; includes daily calorie intake and macronutrient breakdowns for each meal; specifies portions and meal timing; and rigorously avoids all three allergens. The presentation is clear and practical. However, the solution makes an unsupported assumption about athletic activity level that isn't indicated in the task inputs, which affects the appropriateness of the calorie target. Despite this conceptual issue, the solution still delivers a functional, well-structured meal plan that meets all stated criteria.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with high-calorie requirement (3000+ calories) for an active adult</td>
+                <td class="prompt-inputs"><strong>height:</strong> 180 cm<br><strong>weight:</strong> 82 kg<br><strong>goal:</strong> gain muscle<br><strong>restrictions:</strong> none</td>
+                <td class="criteria">• Meal plan totals 3000+ calories across all meals<br>• Plan is organized by meal (breakfast, lunch, dinner, snacks) with clear timing<br>• Includes specific food items and approximate portions for each meal<br>• Supports muscle gain goal with adequate protein distribution</td>
+                <td class="output"><pre># One-Day Athletic Meal Plan
+**Athlete: 180 cm, 82 kg | Goal: Muscle Gain**
+
+---
+
+## Daily Nutrition Target
+- **Calories:** 3,200 kcal
+- **Protein:** 180g (22%)
+- **Carbohydrates:** 400g (50%)
+- **Fat:** 89g (25%)
+
+*Based on high activity level and muscle-building goals*
+
+---
+
+## MEAL PLAN
+
+### **BREAKFAST** | 7:00 AM
+**Protein-Rich Breakfast**
+- Eggs (whole): 3 (150g)
+- White bread: 80g
+- Butter: 15g
+- Orange juice: 250ml
+- Honey: 10g
+
+**Nutrition:** 720 kcal | P: 24g | C: 72g | F: 28g
+
+---
+
+### **MID-MORNING SNACK** | 10:00 AM
+**Carbs & Protein**
+- Banana: 200g
+- Beef jerky: 40g
+- Water: 250ml
+
+**Nutrition:** 380 kcal | P: 22g | C: 48g | F: 8g
+
+---
+
+### **LUNCH** | 1:00 PM
+**Lean Beef with Rice & Vegetables**
+- Ground beef (90/10): 200g
+- White rice (cooked): 250g
+- Carrots (steamed): 120g
+- Olive oil: 12g
+- Salt & pepper to taste
+
+**Nutrition:** 800 kcal | P: 52g | C: 85g | F: 18g
+
+---
+
+### **PRE-WORKOUT SNACK** | 3:30 PM
+**Fast Carbs & Protein**
+- White bread: 80g
+- Chicken breast (cooked): 60g
+- Honey: 15g
+- Water: 250ml
+
+**Nutrition:** 420 kcal | P: 24g | C: 58g | F: 5g
+
+---
+
+### **DINNER** | 7:00 PM
+**Salmon with Sweet Potato & Greens**
+- Atlantic salmon fillet: 180g
+- Sweet potato (baked): 250g
+- Spinach (sautéed): 120g
+- Olive oil: 15g
+- Lemon & herbs
+
+**Nutrition:** 750 kcal | P: 42g | C: 82g | F: 20g
+
+---
+
+### **EVENING SNACK** | 9:30 PM
+**Recovery Meal**
+- Whole milk: 400ml
+- Oats (rolled): 50g
+- Peanut butter: 25g
+
+**Nutrition:** 550 kcal | P: 16g | C: 55g | F: 24g
+
+---
+
+## HYDRATION
+- **Water:** 3-3.5 liters throughout the day
+- 500ml upon waking
+- 250-500ml with each meal
+- 750ml during/after workout
+
+---
+
+## KEY NOTES
+✓ **No dietary restrictions** – all foods included  
+✓ **Budget-friendly proteins:** beef, eggs, chicken, salmon  
+✓ **Meal timing optimized** for muscle growth and recovery  
+✓ **High protein distribution** across all meals (25-30g per meal)  
+✓ **Adjust portions** based on actual training intensity and progress</pre></td>
+                <td class="score-col"><span class="score score-high">10</span></td>
+                <td class="reasoning">The solution comprehensively meets all mandatory requirements: includes breakfast, lunch, and dinner with clear timing; provides daily calorie intake (3,220 kcal, exceeding the 3,000+ requirement); includes macronutrient breakdown for each meal; specifies food portions with measurements; and strongly supports muscle gain with appropriate protein distribution. The meal plan is clear, compact, and well-organized. Secondary criteria are also met effectively. The only minor issue is a negligible 20 kcal overage on the stated target, which is inconsequential. The solution fully satisfies the task requirements.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with specific dietary restriction (vegetarian) to ensure meal plan respects constraints</td>
+                <td class="prompt-inputs"><strong>height:</strong> 170<br><strong>weight:</strong> 68<br><strong>goal:</strong> maintain weight<br><strong>restrictions:</strong> vegetarian</td>
+                <td class="criteria">• All meals are vegetarian with no meat, poultry, or fish<br>• Meal plan covers breakfast, lunch, dinner, and snacks for one full day<br>• Plan is clear, compact, and concise (easy to follow)</td>
+                <td class="output"><pre># One-Day Athletic Meal Plan
+**Athlete: 170 cm, 68 kg | Goal: Weight Maintenance**
+
+---
+
+## Daily Nutrition Target
+- **Calories:** 2,450 kcal
+- **Protein:** 147g (24%)
+- **Carbohydrates:** 294g (48%)
+- **Fat:** 68g (25%)
+
+*Based on moderate activity level and weight maintenance*
+
+---
+
+## MEAL PLAN
+
+### **BREAKFAST** | 7:00 AM
+**Greek Yogurt & Granola Bowl**
+- Greek yogurt (plain): 200g
+- Granola (homemade): 50g
+- Blueberries: 100g
+- Honey: 15g
+- Water: 250ml
+
+**Nutrition:** 520 kcal | P: 20g | C: 72g | F: 14g
+
+---
+
+### **MID-MORNING SNACK** | 10:30 AM
+**Fruit & Legumes**
+- Banana: 120g
+- Hummus: 40g
+- Carrot sticks: 80g
+- Water: 250ml
+
+**Nutrition:** 260 kcal | P: 8g | C: 42g | F: 7g
+
+---
+
+### **LUNCH** | 1:00 PM
+**Chickpea & Quinoa Salad**
+- Cooked quinoa: 150g
+- Canned chickpeas (drained): 180g
+- Bell peppers (mixed): 120g
+- Cucumber: 100g
+- Olive oil: 15g
+- Lemon juice & herbs to taste
+
+**Nutrition:** 620 kcal | P: 24g | C: 78g | F: 18g
+
+---
+
+### **PRE-WORKOUT SNACK** | 3:30 PM
+**Quick Energy**
+- White rice cakes: 50g
+- Almond butter: 25g
+- Raisins: 30g
+
+**Nutrition:** 340 kcal | P: 11g | C: 40g | F: 16g
+
+---
+
+### **DINNER** | 7:00 PM
+**Lentil & Vegetable Stir-Fry**
+- Red lentils (cooked): 200g
+- Broccoli (chopped): 150g
+- Mushrooms: 120g
+- Brown rice (cooked): 150g
+- Sesame oil: 12g
+- Garlic & ginger to taste
+
+**Nutrition:** 580 kcal | P: 74g | C: 78g | F: 13g
+
+---
+
+### **EVENING SNACK** | 9:30 PM *(Optional)*
+**Recovery Drink**
+- Soy milk (unsweetened): 240ml
+- Protein powder (plant-based): 25g
+- Banana: 80g
+
+**Nutrition:** 230 kcal | P: 18g | C: 34g | F: 3g
+
+---
+
+## HYDRATION
+- **Water:** 2.5-3 liters throughout the day
+- Drink 500ml upon waking
+- 250ml with each meal
+- 500ml during/after workout
+
+---
+
+## KEY NOTES
+✓ **All foods are vegetarian**  
+✓ **Budget-friendly proteins:** chickpeas, lentils, quinoa, yogurt, soy milk  
+✓ **High-protein plant sources** meet athletic needs  
+✓ **Timing optimized** for athletic performance and recovery  
+✓ **Adjust portions** based on actual workout intensity</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements with excellent presentation and organization. It provides breakfast, lunch, dinner, snacks, daily calorie intake, macronutrient breakdowns, portions, and meal timing. All foods are vegetarian. However, the solution introduces athletic framing and assumptions (pre-workout snack, recovery drink) that weren't requested in the task, and the calorie calculation methodology is unexplained. These are secondary issues that don't violate mandatory requirements but represent unnecessary additions and minor clarity gaps.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with low-calorie requirement (1500 calories) for weight management</td>
+                <td class="prompt-inputs"><strong>height:</strong> 165 cm<br><strong>weight:</strong> 75 kg<br><strong>goal:</strong> lose weight<br><strong>restrictions:</strong> vegetarian, no nuts</td>
+                <td class="criteria">• Meal plan totals approximately 1500 calories<br>• All meals are vegetarian and nut-free<br>• Includes breakfast, lunch, dinner, and one snack<br>• Plan is clear, compact, and presented in an easy-to-read format</td>
+                <td class="output"><pre># One-Day Athletic Meal Plan
+**Athlete: 165 cm, 75 kg | Goal: Weight Loss**
+
+---
+
+## Daily Nutrition Target
+- **Calories:** 2,100 kcal
+- **Protein:** 158g (30%)
+- **Carbohydrates:** 231g (44%)
+- **Fat:** 58g (25%)
+
+*Based on moderate-high activity level and weight loss goal (0.5 kg/week deficit)*
+
+---
+
+## MEAL PLAN
+
+### **BREAKFAST** | 7:00 AM
+**Protein-Packed Oatmeal**
+- Rolled oats: 50g
+- Low-fat Greek yogurt (plain): 150g
+- Blueberries: 100g
+- Honey: 10g
+- Water: 200ml
+
+**Nutrition:** 380 kcal | P: 18g | C: 58g | F: 6g
+
+---
+
+### **MID-MORNING SNACK** | 10:00 AM
+**Fruit & Protein**
+- Orange: 150g
+- Hard-boiled eggs: 2 (100g)
+- Water: 250ml
+
+**Nutrition:** 280 kcal | P: 15g | C: 28g | F: 12g
+
+---
+
+### **LUNCH** | 1:00 PM
+**Chickpea & Vegetable Buddha Bowl**
+- Cooked chickpeas: 150g
+- Quinoa (cooked): 100g
+- Bell peppers (mixed): 150g
+- Cucumber: 100g
+- Spinach (raw): 50g
+- Lemon-tahini dressing: 15g olive oil + lemon juice
+- Sea salt & pepper to taste
+
+**Nutrition:** 520 kcal | P: 18g | C: 68g | F: 16g
+
+---
+
+### **PRE-WORKOUT SNACK** | 3:30 PM
+**Quick Carbs & Protein**
+- Banana: 120g
+- Plain Greek yogurt: 100g
+- Honey: 5g
+
+**Nutrition:** 210 kcal | P: 12g | C: 36g | F: 2g
+
+---
+
+### **DINNER** | 7:00 PM
+**Lentil & Vegetable Stir-Fry**
+- Red lentils (cooked): 180g
+- Broccoli: 150g
+- Mushrooms: 120g
+- Carrots: 80g
+- Olive oil: 10g
+- Garlic, ginger, low-sodium soy sauce to taste
+- Brown rice (cooked): 100g
+
+**Nutrition:** 510 kcal | P: 22g | C: 78g | F: 10g
+
+---
+
+### **EVENING SNACK** | 9:30 PM *(Optional)*
+**Light Recovery**
+- Cottage cheese (low-fat): 100g
+- Berries: 80g
+- Cinnamon: pinch
+
+**Nutrition:** 100 kcal | P: 13g | C: 9g | F: 1g
+
+---
+
+## HYDRATION
+- **Water:** 2.5-3 liters throughout the day
+- 500ml upon waking
+- 250ml with each meal
+- 500ml during/after workout
+- Herbal tea (unsweetened) as desired
+
+---
+
+## KEY NOTES
+✓ **All foods are vegetarian and nut-free**  
+✓ **Budget-friendly protein sources:** eggs, Greek yogurt, legumes, lentils  
+✓ **High fiber content** supports satiety and weight loss  
+✓ **Meal timing optimized** for athletic performance and recovery  
+✓ **Adjust portions** based on actual workout intensity (add 150-200 kcal if high-intensity)  
+✓ **Protein distributed** across meals for optimal muscle retention during weight loss</pre></td>
+                <td class="score-col"><span class="score score-low">4</span></td>
+                <td class="reasoning">While the solution demonstrates excellent formatting, clarity, and adherence to vegetarian/nut-free restrictions, it fails a mandatory requirement by providing 2,100 calories instead of approximately 1,500 calories. The criteria explicitly specifies the meal plan should total approximately 1,500 calories for weight loss. The solution includes all required components (breakfast, lunch, dinner, snacks, portions, timing, macronutrient breakdowns), but the calorie miscalculation is a fundamental error that violates the secondary criteria. The plan is well-constructed but fundamentally misaligned with the stated caloric target.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with specific cuisine preference (Mediterranean diet) to assess cultural relevance</td>
+                <td class="prompt-inputs"><strong>height:</strong> 175 cm<br><strong>weight:</strong> 72 kg<br><strong>goal:</strong> maintain weight<br><strong>restrictions:</strong> Mediterranean diet preference, no shellfish allergy</td>
+                <td class="criteria">• Meal plan follows Mediterranean diet principles (olive oil, vegetables, whole grains, legumes, fish)<br>• Plan is clear and organized for a single day with breakfast, lunch, and dinner<br>• All meals respect the no shellfish restriction<br>• Meals are practical and concise without excessive detail</td>
+                <td class="output"><pre># One-Day Athletic Meal Plan
+**Athlete: 175 cm, 72 kg | Goal: Weight Maintenance**
+
+---
+
+## Daily Nutrition Target
+- **Calories:** 2,650 kcal
+- **Protein:** 146g (22%)
+- **Carbohydrates:** 331g (50%)
+- **Fat:** 74g (25%)
+
+*Based on moderate activity level and weight maintenance*
+
+---
+
+## MEAL PLAN
+
+### **BREAKFAST** | 7:00 AM
+**Mediterranean Oatmeal Bowl**
+- Rolled oats: 70g
+- Banana: 150g
+- Olive oil: 12g
+- Honey: 20g
+- Water: 240ml
+
+**Nutrition:** 620 kcal | P: 16g | C: 85g | F: 18g
+
+---
+
+### **MID-MORNING SNACK** | 10:00 AM
+**Fruit & Protein**
+- Orange: 200g
+- White fish (canned in water): 100g
+- Whole grain bread: 50g
+- Water: 250ml
+
+**Nutrition:** 310 kcal | P: 22g | C: 42g | F: 4g
+
+---
+
+### **LUNCH** | 1:00 PM
+**Grilled Chicken with Farro & Vegetables**
+- Skinless chicken breast: 200g
+- Farro (cooked): 180g
+- Zucchini (grilled): 150g
+- Olive oil: 14g
+- Lemon & herbs
+
+**Nutrition:** 720 kcal | P: 56g | C: 75g | F: 14g
+
+---
+
+### **PRE-WORKOUT SNACK** | 3:30 PM
+**Carbs & Lean Protein**
+- Whole grain bread: 70g
+- Turkey breast: 50g
+- Dates: 40g
+
+**Nutrition:** 330 kcal | P: 22g | C: 44g | F: 4g
+
+---
+
+### **DINNER** | 7:00 PM
+**Baked Sea Bass with Sweet Potato & Leafy Greens**
+- Sea bass fillet: 200g
+- Sweet potato (baked): 220g
+- Arugula (sautéed in olive oil): 120g
+- Olive oil: 15g
+- Garlic & oregano
+
+**Nutrition:** 670 kcal | P: 50g | C: 65g | F: 20g
+
+---
+
+### **EVENING SNACK** | 9:30 PM *(Optional)*
+**Light Recovery**
+- Plain Greek yogurt (non-dairy alternative): 150g
+- Berries (mixed): 80g
+- Olive oil drizzle: 3g
+
+**Nutrition:** 120 kcal | P: 8g | C: 15g | F: 3g
+
+---
+
+## HYDRATION
+- **Water:** 2.5-3 liters throughout the day
+- 500ml upon waking
+- 250ml with each meal
+- 500ml during/after workout
+
+---
+
+## KEY NOTES
+✓ **All foods follow Mediterranean diet preferences**  
+✓ **No shellfish** – fish options are white fish varieties and sea bass  
+✓ **Budget-friendly proteins:** chicken, turkey, canned fish, eggs  
+✓ **Emphasis on olive oil** for heart-healthy fats  
+✓ **Timing optimized** for athletic performance and recovery  
+✓ **Adjust portions** based on actual workout intensity</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it includes breakfast, lunch, and dinner; provides daily calorie intake (2,650 kcal); includes macronutrient breakdown for each meal; specifies food portions with precise measurements; and provides meal timing. It respects the no-shellfish restriction and strongly aligns with Mediterranean diet principles through olive oil usage, whole grains, and fish selections. The presentation is clear and organized. However, the plan's framing as 'Athletic' and inclusion of a pre-workout snack suggests assumptions not explicitly stated in the task inputs. The absence of legumes—a fundamental Mediterranean staple—is a notable gap. These are secondary criterion issues that don't violate mandatory requirements but represent missed optimization opportunities.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with budget constraint (meals under $3 per serving) for cost-conscious adults</td>
+                <td class="prompt-inputs"><strong>height:</strong> 172 cm<br><strong>weight:</strong> 70 kg<br><strong>goal:</strong> maintain weight<br><strong>restrictions:</strong> vegetarian, no nuts</td>
+                <td class="criteria">• All meals are vegetarian and nut-free<br>• Each meal costs under $3 per serving<br>• Plan covers breakfast, lunch, and dinner with appropriate portions<br>• Meals are clear, compact, and concise with basic preparation instructions</td>
+                <td class="output"><pre># One-Day Athletic Meal Plan
+**Athlete: 172 cm, 70 kg | Goal: Weight Maintenance**
+
+---
+
+## Daily Nutrition Target
+- **Calories:** 2,550 kcal
+- **Protein:** 140g (22%)
+- **Carbohydrates:** 319g (50%)
+- **Fat:** 71g (25%)
+
+*Based on moderate activity level and weight maintenance*
+
+---
+
+## MEAL PLAN
+
+### **BREAKFAST** | 7:00 AM
+**Oatmeal with Berries & Seeds**
+- Rolled oats: 60g
+- Blueberries: 100g
+- Sunflower seeds: 25g
+- Honey: 15g
+- Whole milk: 200ml
+
+**Nutrition:** 520 kcal | P: 16g | C: 72g | F: 14g
+
+---
+
+### **MID-MORNING SNACK** | 10:00 AM
+**Fruit & Yogurt**
+- Greek yogurt (plain): 150g
+- Banana: 120g
+- Granola (nut-free): 30g
+
+**Nutrition:** 280 kcal | P: 18g | C: 35g | F: 5g
+
+---
+
+### **LUNCH** | 1:00 PM
+**Vegetarian Buddha Bowl**
+- Cooked chickpeas: 150g
+- Quinoa (cooked): 150g
+- Sweet potato (roasted): 120g
+- Spinach: 80g
+- Olive oil: 12g
+- Lemon juice & herbs to taste
+
+**Nutrition:** 620 kcal | P: 18g | C: 85g | F: 18g
+
+---
+
+### **PRE-WORKOUT SNACK** | 3:30 PM
+**Simple Carbs & Protein**
+- White toast: 60g
+- Hummus: 40g
+- Apple: 150g
+
+**Nutrition:** 310 kcal | P: 12g | C: 48g | F: 7g
+
+---
+
+### **DINNER** | 7:00 PM
+**Baked Tofu with Brown Rice & Vegetables**
+- Extra-firm tofu: 200g
+- Brown rice (cooked): 180g
+- Broccoli (steamed): 150g
+- Sesame oil: 10g
+- Garlic & ginger to taste
+
+**Nutrition:** 620 kcal | P: 22g | C: 80g | F: 18g
+
+---
+
+### **EVENING SNACK** | 9:30 PM *(Optional)*
+**Light Recovery Drink**
+- Whole milk: 250ml
+- Honey: 10g
+- Vanilla extract
+
+**Nutrition:** 200 kcal | P: 8g | C: 30g | F: 4g
+
+---
+
+## HYDRATION
+- **Water:** 2.5-3 liters throughout the day
+- 500ml upon waking
+- 250ml with each meal
+- 500ml during/after workout
+
+---
+
+## KEY NOTES
+✓ **All foods are vegetarian and nut-free**  
+✓ **Budget-friendly proteins:** tofu, chickpeas, lentils, eggs, Greek yogurt  
+✓ **Timing optimized** for athletic performance and recovery  
+✓ **Adjust portions** based on actual workout intensity</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution successfully addresses all mandatory requirements with excellent clarity and organization. It provides breakfast, lunch, and dinner with appropriate timing, daily calorie intake, macronutrient breakdowns, and specific portions. All foods are vegetarian and nut-free. However, the critical secondary criterion regarding cost ($3 per serving) cannot be evaluated because no pricing information is provided. Additionally, while the meals appear budget-friendly based on ingredient selection, the lack of explicit cost verification represents a gap in meeting stated criteria. The absence of preparation instructions is a minor deficiency. The inclusion of optional snacks, while helpful, goes beyond the core requirement of three meals.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with limited ingredient availability (only pantry staples) to verify practical adaptability</td>
+                <td class="prompt-inputs"><strong>height:</strong> 175 cm<br><strong>weight:</strong> 75 kg<br><strong>goal:</strong> maintain weight<br><strong>restrictions:</strong> vegetarian, no fresh produce available</td>
+                <td class="criteria">• All meals use only pantry staples (canned goods, dried goods, grains, oils, spices, eggs, dairy)<br>• Meal plan is clear, compact, and covers breakfast, lunch, and dinner<br>• Nutritionally balanced and appropriate for a 75 kg adult maintaining weight</td>
+                <td class="output"><pre># One-Day Athletic Meal Plan
+**Athlete: 175 cm, 75 kg | Goal: Weight Maintenance**
+
+---
+
+## Daily Nutrition Target
+- **Calories:** 2,650 kcal
+- **Protein:** 145g (22%)
+- **Carbohydrates:** 331g (50%)
+- **Fat:** 74g (25%)
+
+*Based on moderate activity level and weight maintenance*
+
+---
+
+## MEAL PLAN
+
+### **BREAKFAST** | 7:00 AM
+**Oatmeal with Peanut Butter**
+- Rolled oats: 70g
+- Peanut butter: 35g
+- Honey: 20g
+- Water: 250ml
+
+**Nutrition:** 590 kcal | P: 18g | C: 72g | F: 23g
+
+---
+
+### **MID-MORNING SNACK** | 10:30 AM
+**Protein Boost**
+- White bread: 80g
+- Peanut butter: 25g
+- Jam: 20g
+
+**Nutrition:** 380 kcal | P: 12g | C: 48g | F: 16g
+
+---
+
+### **LUNCH** | 1:00 PM
+**Lentil & Rice Bowl**
+- Cooked brown rice: 250g
+- Canned lentils (drained): 180g
+- Canned tomatoes: 100g
+- Vegetable oil: 12g
+- Salt & garlic powder to taste
+
+**Nutrition:** 620 kcal | P: 22g | C: 92g | F: 14g
+
+---
+
+### **PRE-WORKOUT SNACK** | 3:30 PM
+**Quick Energy**
+- Pasta (cooked): 100g
+- Canned chickpeas: 80g
+- Olive oil: 8g
+
+**Nutrition:** 320 kcal | P: 10g | C: 48g | F: 9g
+
+---
+
+### **DINNER** | 7:00 PM
+**Bean & Potato Stew**
+- Canned white beans: 200g
+- Canned potatoes: 250g
+- Canned mixed vegetables: 150g
+- Vegetable oil: 15g
+- Vegetable broth: 300ml
+- Herbs & salt to taste
+
+**Nutrition:** 580 kcal | P: 20g | C: 78g | F: 18g
+
+---
+
+### **EVENING SNACK** | 9:30 PM *(Optional)*
+**Recovery Carbs**
+- White rice cakes: 50g
+- Peanut butter: 15g
+
+**Nutrition:** 180 kcal | P: 7g | C: 20g | F: 9g
+
+---
+
+## HYDRATION
+- **Water:** 2.5-3 liters throughout the day
+- 500ml upon waking
+- 250ml with each meal
+- 500ml during/after workout
+
+---
+
+## KEY NOTES
+✓ **All foods are vegetarian and require no fresh produce**  
+✓ **Budget-friendly:** relies on canned goods, dried grains, and pantry staples  
+✓ **Protein sources:** legumes, beans, nuts, and nut butters  
+✓ **Timing optimized** for athletic performance  
+✓ **Adjust portions** based on actual workout intensity</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements with clear structure, precise portions, timing, and complete nutritional information. All foods are appropriate pantry staples with no fresh produce. The macronutrient balance is sound for weight maintenance. The primary weakness is the athletic framing and assumptions about workout intensity that aren't grounded in the task inputs, though this doesn't violate the stated criteria. The plan is clear and reasonably compact despite the athletic focus. The solution meets both mandatory and secondary criteria effectively.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with specific health goal (high protein for muscle building) to ensure nutritional alignment</td>
+                <td class="prompt-inputs"><strong>height:</strong> 180 cm<br><strong>weight:</strong> 75 kg<br><strong>goal:</strong> gain muscle<br><strong>restrictions:</strong> none</td>
+                <td class="criteria">• Meal plan covers all three meals (breakfast, lunch, dinner) and is formatted clearly for one day<br>• Each meal includes protein-rich foods with estimated protein content supporting muscle-building goals (approximately 25-35g protein per meal)<br>• Meals are practical, compact, and concise without excessive detail or lengthy descriptions</td>
+                <td class="output"><pre># One-Day Athletic Meal Plan
+**Athlete: 180 cm, 75 kg | Goal: Muscle Gain**
+
+---
+
+## Daily Nutrition Target
+- **Calories:** 3,100 kcal
+- **Protein:** 195g (25%)
+- **Carbohydrates:** 387g (50%)
+- **Fat:** 86g (25%)
+
+*Based on moderate-to-high activity level and muscle building phase*
+
+---
+
+## MEAL PLAN
+
+### **BREAKFAST** | 7:00 AM
+**Egg & Oats Power Breakfast**
+- Whole eggs: 3 (150g)
+- Rolled oats: 80g
+- Banana: 150g
+- Honey: 20g
+- Whole milk: 200ml
+
+**Nutrition:** 720 kcal | P: 32g | C: 92g | F: 18g
+
+---
+
+### **MID-MORNING SNACK** | 10:00 AM
+**Protein & Carbs**
+- Greek yogurt (plain): 200g
+- Granola: 40g
+- Blueberries: 100g
+- Honey: 15g
+
+**Nutrition:** 380 kcal | P: 20g | C: 52g | F: 8g
+
+---
+
+### **LUNCH** | 1:00 PM
+**Lean Beef with Rice & Vegetables**
+- Ground beef (90% lean): 200g
+- White rice (cooked): 250g
+- Carrots (steamed): 120g
+- Olive oil: 15g
+- Salt & pepper to taste
+
+**Nutrition:** 810 kcal | P: 48g | C: 88g | F: 18g
+
+---
+
+### **PRE-WORKOUT SNACK** | 3:30 PM
+**Quick Carbs & Protein**
+- White bread: 80g
+- Peanut butter: 25g
+- Banana: 120g
+
+**Nutrition:** 530 kcal | P: 18g | C: 68g | F: 18g
+
+---
+
+### **DINNER** | 7:00 PM
+**Grilled Chicken with Sweet Potato & Greens**
+- Skinless chicken breast: 220g
+- Sweet potato (baked): 250g
+- Spinach (sautéed): 100g
+- Olive oil: 15g
+- Lemon & garlic seasoning
+
+**Nutrition:** 660 kcal | P: 55g | C: 75g | F: 12g
+
+---
+
+### **EVENING SNACK** | 9:30 PM
+**Recovery Shake**
+- Whole milk: 300ml
+- Whey protein powder: 30g
+- Oats (dry): 40g
+- Honey: 20g
+
+**Nutrition:** 480 kcal | P: 32g | C: 58g | F: 10g
+
+---
+
+## HYDRATION
+- **Water:** 3-3.5 liters throughout the day
+- 500ml upon waking
+- 300ml with each meal
+- 500ml during/after workout
+- 250ml with snacks
+
+---
+
+## KEY NOTES
+✓ **No dietary restrictions** - all nutrient-dense foods included  
+✓ **High protein distribution** - supports muscle protein synthesis  
+✓ **Timing optimized** for pre/post-workout nutrition  
+✓ **Budget-friendly proteins:** eggs, chicken, ground beef, Greek yogurt  
+✓ **Adjust portions** based on actual workout intensity and progression  
+✓ **Monitor weight weekly** - aim for 0.5-1kg gain per week</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution comprehensively meets all mandatory requirements with precise macronutrient data, clear portions, specific timing, and daily calorie targets. The meal plan is well-structured and directly supports the muscle-gain goal with appropriate protein distribution. However, the solution slightly violates the 'compact and concise' criterion by including extra sections and 6 meals instead of focusing on the core 3 meals. Despite this minor overreach, the core deliverables are executed excellently with professional formatting and practical, realistic food choices.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with minimal cooking time constraint (under 15 minutes per meal) for busy professionals</td>
+                <td class="prompt-inputs"><strong>height:</strong> 175 cm<br><strong>weight:</strong> 75 kg<br><strong>goal:</strong> maintain weight<br><strong>restrictions:</strong> vegetarian, no nuts</td>
+                <td class="criteria">• All meals can be prepared in 15 minutes or less<br>• Meal plan covers breakfast, lunch, and dinner with appropriate portions for weight maintenance<br>• All meals comply with vegetarian diet and exclude nuts<br>• Plan is clear, compact, and includes basic preparation instructions</td>
+                <td class="output"><pre># One-Day Athletic Meal Plan
+**Athlete: 175 cm, 75 kg | Goal: Weight Maintenance**
+
+---
+
+## Daily Nutrition Target
+- **Calories:** 2,650 kcal
+- **Protein:** 146g (22%)
+- **Carbohydrates:** 331g (50%)
+- **Fat:** 74g (25%)
+
+*Based on moderate activity level and weight maintenance*
+
+---
+
+## MEAL PLAN
+
+### **BREAKFAST** | 7:00 AM
+**Oatmeal with Berries & Seeds**
+- Rolled oats: 70g
+- Blueberries (fresh): 120g
+- Sunflower seeds: 25g
+- Honey: 15g
+- Milk (dairy-free, oat): 240ml
+
+**Nutrition:** 520 kcal | P: 16g | C: 82g | F: 12g
+
+---
+
+### **MID-MORNING SNACK** | 10:30 AM
+**Fruit & Protein**
+- Banana: 150g
+- Greek yogurt (plain): 150g
+- Granola (nut-free): 30g
+
+**Nutrition:** 310 kcal | P: 18g | C: 42g | F: 5g
+
+---
+
+### **LUNCH** | 1:00 PM
+**Lentil & Vegetable Bowl**
+- Cooked lentils: 150g
+- Brown rice (cooked): 180g
+- Bell peppers (mixed): 100g
+- Spinach (raw): 80g
+- Olive oil: 12g
+- Lemon juice & herbs to taste
+
+**Nutrition:** 620 kcal | P: 24g | C: 85g | F: 14g
+
+---
+
+### **PRE-WORKOUT SNACK** | 3:30 PM
+**Quick Energy**
+- White bread: 50g
+- Hummus: 40g
+- Cucumber slices: 100g
+
+**Nutrition:** 220 kcal | P: 8g | C: 32g | F: 6g
+
+---
+
+### **DINNER** | 7:00 PM
+**Chickpea Curry with Sweet Potato**
+- Canned chickpeas (drained): 180g
+- Sweet potato (cubed): 200g
+- Coconut milk (light): 100ml
+- Onion: 80g
+- Garlic & ginger: 10g
+- Olive oil: 10g
+- Jasmine rice (cooked): 150g
+
+**Nutrition:** 750 kcal | P: 22g | C: 105g | F: 22g
+
+---
+
+### **EVENING SNACK** | 9:30 PM *(Optional)*
+**Recovery Drink**
+- Soy milk: 240ml
+- Banana: 100g
+- Cocoa powder (unsweetened): 10g
+- Honey: 10g
+
+**Nutrition:** 230 kcal | P: 8g | C: 45g | F: 3g
+
+---
+
+## HYDRATION
+- **Water:** 2.5-3 liters throughout the day
+- Drink 500ml upon waking
+- 250ml with each meal
+- 500ml during/after workout
+
+---
+
+## KEY NOTES
+✓ **All foods are vegetarian and nut-free**  
+✓ **Plant-based protein sources:** lentils, chickpeas, Greek yogurt, soy  
+✓ **Budget-friendly:** focuses on legumes and whole grains  
+✓ **Timing optimized** for athletic performance and recovery  
+✓ **Adjust portions** based on actual workout intensity</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution successfully meets all mandatory requirements with excellent organization and clarity. It provides breakfast, lunch, and dinner with complete nutritional data, portions, and timing. All restrictions are honored. However, the secondary criterion regarding 15-minute meal preparation is problematic—cooking lentils, rice, and chickpeas from scratch typically requires 20-45 minutes, and the solution provides no preparation shortcuts or instructions to address this. Additionally, the inclusion of optional snacks and pre-workout meals contradicts the 'compact and concise' requirement. The calorie calculation lacks transparency. These issues prevent a higher score, though the solution remains functional and comprehensive.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with minimal kitchen equipment (no oven) to evaluate recipe feasibility</td>
+                <td class="prompt-inputs"><strong>height:</strong> 175 cm<br><strong>weight:</strong> 75 kg<br><strong>goal:</strong> maintain weight<br><strong>restrictions:</strong> vegetarian, no access to oven</td>
+                <td class="criteria">• All meals are feasible using only stovetop, microwave, or no-cook methods<br>• Meal plan covers breakfast, lunch, and dinner with appropriate portions<br>• Meals align with vegetarian restriction<br>• Plan is clear and compact (concise format suitable for quick reference)</td>
+                <td class="output"><pre># One-Day Athletic Meal Plan
+**Athlete: 175 cm, 75 kg | Goal: Weight Maintenance**
+
+---
+
+## Daily Nutrition Target
+- **Calories:** 2,650 kcal
+- **Protein:** 156g (24%)
+- **Carbohydrates:** 331g (50%)
+- **Fat:** 74g (25%)
+
+*Based on moderate activity level and weight maintenance*
+
+---
+
+## MEAL PLAN
+
+### **BREAKFAST** | 7:00 AM
+**Lentil & Vegetable Scramble**
+- Cooked brown lentils: 150g
+- Spinach (pan-sautéed): 100g
+- Onion: 50g
+- Olive oil: 15g
+- Whole wheat toast: 60g
+- Sea salt & pepper to taste
+
+**Nutrition:** 520 kcal | P: 22g | C: 62g | F: 18g
+
+---
+
+### **MID-MORNING SNACK** | 10:00 AM
+**Fruit & Legume**
+- Banana: 180g
+- Hummus: 40g
+- Carrot sticks: 100g
+
+**Nutrition:** 280 kcal | P: 8g | C: 48g | F: 6g
+
+---
+
+### **LUNCH** | 1:00 PM
+**Chickpea & Sweet Potato Bowl**
+- Canned chickpeas (drained): 200g
+- Sweet potato (microwaved): 220g
+- Bell pepper (raw): 120g
+- Olive oil: 12g
+- Lemon juice & cumin
+
+**Nutrition:** 620 kcal | P: 18g | C: 86g | F: 16g
+
+---
+
+### **PRE-WORKOUT SNACK** | 3:30 PM
+**Quick Carbs & Protein**
+- White rice cakes: 50g
+- Peanut butter: 25g
+- Apple: 150g
+
+**Nutrition:** 380 kcal | P: 12g | C: 48g | F: 17g
+
+---
+
+### **DINNER** | 7:00 PM
+**Tofu Stir-Fry with Rice**
+- Extra-firm tofu (pan-fried): 250g
+- Broccoli: 150g
+- Mushrooms: 120g
+- Brown rice (cooked): 180g
+- Vegetable oil: 15g
+- Soy sauce & garlic to taste
+
+**Nutrition:** 650 kcal | P: 28g | C: 72g | F: 25g
+
+---
+
+### **EVENING SNACK** | 9:30 PM *(Optional)*
+**Recovery Drink**
+- Soy milk: 240ml
+- Banana: 100g
+- Cocoa powder: 10g
+- Honey: 10g
+
+**Nutrition:** 200 kcal | P: 8g | C: 40g | F: 2g
+
+---
+
+## HYDRATION
+- **Water:** 2.5-3 liters throughout the day
+- 500ml upon waking
+- 250ml with each meal
+- 500ml during/after workout
+
+---
+
+## KEY NOTES
+✓ **All foods are vegetarian**  
+✓ **No oven required** – all cooking done via stovetop, microwave, or pan-frying  
+✓ **Budget-friendly proteins:** lentils, chickpeas, tofu, beans  
+✓ **Meal timing optimized** for athletic performance and recovery  
+✓ **Adjust portions** based on actual workout intensity</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements with excellent execution: it provides breakfast, lunch, and dinner with specific timing; includes daily calorie intake and complete macronutrient breakdowns for each meal; specifies food portions precisely; and adheres strictly to the no-oven constraint using only stovetop, microwave, and pan methods. All meals are vegetarian-compliant. The format is clear and well-organized for quick reference. The primary weakness is that the calorie target (2,650 kcal) appears to assume an activity level not explicitly stated in the inputs, though this is a reasonable inference for weight maintenance. The inclusion of optional snacks adds some complexity, but they are clearly marked as optional and don't detract significantly from the core meal plan. The solution exceeds the secondary criteria expectations with professional presentation and practical hydration guidance.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

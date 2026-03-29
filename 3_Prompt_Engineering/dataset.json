@@ -1,0 +1,158 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "172 cm",
+      "weight": "70 kg",
+      "goal": "maintain weight",
+      "restrictions": "allergic to nuts, shellfish, and dairy"
+    },
+    "solution_criteria": [
+      "All meals are free from nuts, shellfish, and dairy",
+      "Meal plan is structured for one day with breakfast, lunch, and dinner",
+      "Plan is clear and concise with practical food choices"
+    ],
+    "task_description": "Write a clear, compact and concise one-day meal plan for an adult",
+    "scenario": "Testing with multiple food allergies (nuts, shellfish, dairy) to verify safe meal alternatives"
+  },
+  {
+    "prompt_inputs": {
+      "height": "180 cm",
+      "weight": "82 kg",
+      "goal": "gain muscle",
+      "restrictions": "none"
+    },
+    "solution_criteria": [
+      "Meal plan totals 3000+ calories across all meals",
+      "Plan is organized by meal (breakfast, lunch, dinner, snacks) with clear timing",
+      "Includes specific food items and approximate portions for each meal",
+      "Supports muscle gain goal with adequate protein distribution"
+    ],
+    "task_description": "Write a clear, compact and concise one-day meal plan for an adult",
+    "scenario": "Testing with high-calorie requirement (3000+ calories) for an active adult"
+  },
+  {
+    "prompt_inputs": {
+      "height": "170",
+      "weight": "68",
+      "goal": "maintain weight",
+      "restrictions": "vegetarian"
+    },
+    "solution_criteria": [
+      "All meals are vegetarian with no meat, poultry, or fish",
+      "Meal plan covers breakfast, lunch, dinner, and snacks for one full day",
+      "Plan is clear, compact, and concise (easy to follow)"
+    ],
+    "task_description": "Write a clear, compact and concise one-day meal plan for an adult",
+    "scenario": "Testing with specific dietary restriction (vegetarian) to ensure meal plan respects constraints"
+  },
+  {
+    "prompt_inputs": {
+      "height": "165 cm",
+      "weight": "75 kg",
+      "goal": "lose weight",
+      "restrictions": "vegetarian, no nuts"
+    },
+    "solution_criteria": [
+      "Meal plan totals approximately 1500 calories",
+      "All meals are vegetarian and nut-free",
+      "Includes breakfast, lunch, dinner, and one snack",
+      "Plan is clear, compact, and presented in an easy-to-read format"
+    ],
+    "task_description": "Write a clear, compact and concise one-day meal plan for an adult",
+    "scenario": "Testing with low-calorie requirement (1500 calories) for weight management"
+  },
+  {
+    "prompt_inputs": {
+      "height": "175 cm",
+      "weight": "72 kg",
+      "goal": "maintain weight",
+      "restrictions": "Mediterranean diet preference, no shellfish allergy"
+    },
+    "solution_criteria": [
+      "Meal plan follows Mediterranean diet principles (olive oil, vegetables, whole grains, legumes, fish)",
+      "Plan is clear and organized for a single day with breakfast, lunch, and dinner",
+      "All meals respect the no shellfish restriction",
+      "Meals are practical and concise without excessive detail"
+    ],
+    "task_description": "Write a clear, compact and concise one-day meal plan for an adult",
+    "scenario": "Testing with specific cuisine preference (Mediterranean diet) to assess cultural relevance"
+  },
+  {
+    "prompt_inputs": {
+      "height": "172 cm",
+      "weight": "70 kg",
+      "goal": "maintain weight",
+      "restrictions": "vegetarian, no nuts"
+    },
+    "solution_criteria": [
+      "All meals are vegetarian and nut-free",
+      "Each meal costs under $3 per serving",
+      "Plan covers breakfast, lunch, and dinner with appropriate portions",
+      "Meals are clear, compact, and concise with basic preparation instructions"
+    ],
+    "task_description": "Write a clear, compact and concise one-day meal plan for an adult",
+    "scenario": "Testing with budget constraint (meals under $3 per serving) for cost-conscious adults"
+  },
+  {
+    "prompt_inputs": {
+      "height": "175 cm",
+      "weight": "75 kg",
+      "goal": "maintain weight",
+      "restrictions": "vegetarian, no fresh produce available"
+    },
+    "solution_criteria": [
+      "All meals use only pantry staples (canned goods, dried goods, grains, oils, spices, eggs, dairy)",
+      "Meal plan is clear, compact, and covers breakfast, lunch, and dinner",
+      "Nutritionally balanced and appropriate for a 75 kg adult maintaining weight"
+    ],
+    "task_description": "Write a clear, compact and concise one-day meal plan for an adult",
+    "scenario": "Testing with limited ingredient availability (only pantry staples) to verify practical adaptability"
+  },
+  {
+    "prompt_inputs": {
+      "height": "175 cm",
+      "weight": "75 kg",
+      "goal": "maintain weight",
+      "restrictions": "vegetarian, no nuts"
+    },
+    "solution_criteria": [
+      "All meals can be prepared in 15 minutes or less",
+      "Meal plan covers breakfast, lunch, and dinner with appropriate portions for weight maintenance",
+      "All meals comply with vegetarian diet and exclude nuts",
+      "Plan is clear, compact, and includes basic preparation instructions"
+    ],
+    "task_description": "Write a clear, compact and concise one-day meal plan for an adult",
+    "scenario": "Testing with minimal cooking time constraint (under 15 minutes per meal) for busy professionals"
+  },
+  {
+    "prompt_inputs": {
+      "height": "175 cm",
+      "weight": "75 kg",
+      "goal": "maintain weight",
+      "restrictions": "vegetarian, no access to oven"
+    },
+    "solution_criteria": [
+      "All meals are feasible using only stovetop, microwave, or no-cook methods",
+      "Meal plan covers breakfast, lunch, and dinner with appropriate portions",
+      "Meals align with vegetarian restriction",
+      "Plan is clear and compact (concise format suitable for quick reference)"
+    ],
+    "task_description": "Write a clear, compact and concise one-day meal plan for an adult",
+    "scenario": "Testing with minimal kitchen equipment (no oven) to evaluate recipe feasibility"
+  },
+  {
+    "prompt_inputs": {
+      "height": "180 cm",
+      "weight": "75 kg",
+      "goal": "gain muscle",
+      "restrictions": "none"
+    },
+    "solution_criteria": [
+      "Meal plan covers all three meals (breakfast, lunch, dinner) and is formatted clearly for one day",
+      "Each meal includes protein-rich foods with estimated protein content supporting muscle-building goals (approximately 25-35g protein per meal)",
+      "Meals are practical, compact, and concise without excessive detail or lengthy descriptions"
+    ],
+    "task_description": "Write a clear, compact and concise one-day meal plan for an adult",
+    "scenario": "Testing with specific health goal (high protein for muscle building) to ensure nutritional alignment"
+  }
+]
