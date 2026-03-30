@@ -26,3 +26,10 @@ Built with Claude API - For developers
 | # | Topic | Summary |
 |---|-------|---------|
 | 1 | [Advanced Prompt Evaluation Workflow](3_Prompt_Engineering/1_Advanced_Prompt_Evaluation_Workflow.ipynb) | End-to-end workflow combining prompt engineering principles with automated evaluation and HTML reporting |
+
+## 4. Tools
+
+| # | Topic | Summary |
+|---|-------|---------|
+| 1 | [Basic Flow](4_Tools/1_Basic_Flow.ipynb) | Complete tool use lifecycle - define a function, write a JSON schema, call the API, and return tool results |
+| 2 | [Multi-turn Conversation](4_Tools/2_Multi-turn_Conversation.ipynb) | Automate tool calling in a loop so Claude can make multiple tool calls across turns without manual intervention |
