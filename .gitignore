@@ -185,3 +185,4 @@ settings.local.json
 
 # Personal files
 OTHERS/**
+.backups/

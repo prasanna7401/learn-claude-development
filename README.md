@@ -33,3 +33,12 @@ Built with Claude API - For developers
 |---|-------|---------|
 | 1 | [Basic Flow](4_Tools/1_Basic_Flow.ipynb) | Complete tool use lifecycle - define a function, write a JSON schema, call the API, and return tool results |
 | 2 | [Multi-turn Conversation](4_Tools/2_Multi-turn_Conversation.ipynb) | Automate tool calling in a loop so Claude can make multiple tool calls across turns without manual intervention |
+| 3 | [Streaming with Fine-grained Tool Calling](4_Tools/3_Streaming_with_Fine-grained-Tool-Call.ipynb) | Explore `InputJsonEvent` and buffered vs token-by-token tool argument streaming via `fine_grained=True` |
+| 4 | [Text Editor Tool](4_Tools/4_Text_Editor_Tool.ipynb) | Use Claude's built-in text editor tool to view, create, and modify files via `command` dispatch; schema version varies by model |               
+| 5 | [Web Search Tool](4_Tools/5_Web_Search_Tool.ipynb) | Give Claude real-time web search capability using the built-in `web_search` schema; restrict results with `allowed_domains` |       
+
+---
+
+### Reference
+
+- [Anthropic Academy - Build with Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api)

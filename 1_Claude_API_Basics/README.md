@@ -56,6 +56,16 @@ Control how predictable or creative responses are using the `temperature` parame
 
 Stream responses in real-time instead of waiting for the full response. Covers two approaches: low-level `stream=True` with raw event iteration, and high-level `client.messages.stream()` context manager.
 
+```py
+with client.messages.stream(
+    model=model,
+    max_tokens=10000,
+    messages=messages
+) as stream:
+    for text in stream.text_stream:
+        print(text, end="")
+```
+
 **Key concepts:** `stream=True`, `client.messages.stream()`, `text_stream`, `get_final_message()`, streaming event types (`RawMessageStartEvent`, `RawContentBlockDeltaEvent`, etc.)
 
 ---
