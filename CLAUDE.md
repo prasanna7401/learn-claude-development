@@ -8,8 +8,13 @@ A hands-on learning repository for the Anthropic Claude API using Python. Conten
 
 ## Repository Structure
 
-- `1_Claude_API_Basics/` - Numbered notebooks (1-7) covering core API features: requests, multi-turn conversations, system prompts, temperature, streaming, and structured output
-- `OTHERS/` - Git-ignored scratch area containing a comprehensive reference script (`0_Comprehensive_Reference.py`) and additional notebooks (8-12) covering tool use, vision, extended thinking, token counting, and error handling
+- `1_Claude_API_Basics/` - 8 notebooks (1-7.2): requests, multi-turn conversations, chatbot exercise, system prompts, temperature, streaming, and structured output (prefill + system prompt approaches)
+- `2_Prompt_Evaluation/` - 2 notebooks: prompt eval workflow and grading strategies
+- `3_Prompt_Engineering/` - 1 notebook: advanced prompt evaluation workflow
+- `4_Tools/` - 3 notebooks: basic flow, multi-turn conversation, streaming with fine-grained tool calls
+- `assets/` - Diagrams and images used in documentation
+- `.claude/` - Hooks (`check-notebook.py`), custom commands, settings
+- `OTHERS/` - Git-ignored scratch area containing a comprehensive reference script (`0_Comprehensive_Reference.py`) and additional notebooks covering vision, extended thinking, token counting, and error handling
 
 ## Tech Stack
 
@@ -45,8 +50,22 @@ Each notebook is self-contained - it installs dependencies via `%pip install` in
 - **Structured output (Claude 4.x):** System prompt instruction + `re.sub()` fence stripping - see notebook 7.2 (Claude 4.x does not support assistant prefill)
 - **Streaming:** Two approaches - low-level `stream=True` with event iteration, and high-level `client.messages.stream()` context manager
 - **System prompt passing:** Uses `**params` dict pattern to conditionally include `system` only when not `None`
+- **Tool use basic flow:** JSON schema definition + `tool_use`/`tool_result` message cycle - see `4_Tools/1_Basic_Flow.ipynb`
+- **Automated tool loop:** Dispatcher loop that continues until `stop_reason != "tool_use"` - see `4_Tools/2_Multi-turn_Conversation.ipynb`
+- **Streaming with fine-grained tool calls:** `stream=True` with `input_json_delta` event accumulation - see `4_Tools/3_Streaming_with_Fine-grained-Tool-Call.ipynb`
 
+## Hooks and Commands
+
+### PostToolUse hook
+
+- **`check-notebook.py`** fires on `NotebookEdit` - validates that notebooks contain `%pip install`, `load_dotenv`, no hardcoded API keys, and a model variable
+
+### Custom commands
+
+- `/claude-api-ref` - Look up Anthropic Python SDK documentation for a given topic
+- `/new-notebook-template` - Scaffold a new Jupyter notebook for this learning repository
+- `/update-readmes` - Regenerate all README files from the current notebook inventory
 
 ### Formatting recommendations
 
-- Instead of using em dashes, prefer hypens
+- Instead of using em dashes, prefer hyphens

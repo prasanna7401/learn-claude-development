@@ -2,11 +2,11 @@
     "hooks": {
     "PostToolUse": [
       {
-        "matcher": "NotebookEdit|Write",
+        "matcher": "NotebookEdit",
         "hooks": [
           {
             "type": "command",
-            "command": "python \"$PROJECT_DIR/.claude/hooks/check-notebook.py\" \"$TOOL_INPUT_file_path\""
+            "command": "python \".claude/hooks/check-notebook.py\" \"$TOOL_INPUT_file_path\""
           }
         ]
       }
