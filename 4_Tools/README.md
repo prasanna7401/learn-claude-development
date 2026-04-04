@@ -99,7 +99,7 @@ Walk through the complete tool use lifecycle step by step: define a Python funct
 
 Automate tool calling in a loop so Claude can make multiple tool calls across turns without manual intervention. Improves on the basic flow with robust helper functions that handle `Message` objects, a `run_tools()` dispatcher, and a `run_conversation()` loop that continues until Claude stops requesting tools.
 
-**Key concepts:** `run_conversation()` loop, `run_tools()` dispatcher, `stop_reason` check, `text_from_message()`, multiple simultaneous tool calls, `json.dumps()` for tool output
+**Key concepts:** `run_conversation()` loop, `run_tools()` dispatcher, `stop_reason` check, `text_from_message()`, multiple simultaneous tool calls.
 
 #### Multiple Tool Calls
 
