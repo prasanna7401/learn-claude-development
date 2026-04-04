@@ -37,6 +37,16 @@ Built with Claude API - For developers
 | 4 | [Text Editor Tool](4_Tools/4_Text_Editor_Tool.ipynb) | Use Claude's built-in text editor tool to view, create, and modify files via `command` dispatch; schema version varies by model |               
 | 5 | [Web Search Tool](4_Tools/5_Web_Search_Tool.ipynb) | Give Claude real-time web search capability using the built-in `web_search` schema; restrict results with `allowed_domains` |       
 
+## 5. RAG
+
+| # | Topic | Summary |
+|---|-------|---------|
+| 1 | [Chunking Strategies](5_RAG/1_Chunking_Strategies.ipynb) | Split documents into chunks using size-based, sentence-based, and section-based strategies with configurable overlap |
+| 2 | [Embedding](5_RAG/2_Embedding.ipynb) | Convert text chunks into dense vectors using VoyageAI embeddings for semantic similarity search |
+| 3 | [VectorDB](5_RAG/3_VectorDB.ipynb) | Build a full RAG pipeline with a custom VectorIndex supporting cosine similarity, top-k, threshold, and reranking retrieval |
+| 4 | [BM25 Lexical Search](5_RAG/4_BM25_Lexical_Search.ipynb) | Implement BM25Index for keyword-based retrieval with TF-IDF scoring, length normalization, and term frequency saturation |
+| 5 | [Multi-Index RAG](5_RAG/5_Multi-Index_RAG.ipynb) | Combine VectorIndex and BM25Index using Reciprocal Rank Fusion (RRF) to merge ranked lists from both retrieval methods |
+
 ---
 
 ### Reference
