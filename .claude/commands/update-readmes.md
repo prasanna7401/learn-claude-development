@@ -14,6 +14,8 @@ For each section directory, list all `.ipynb` files. Parse notebook numbers from
 
 Sort notebooks by their numeric prefix (e.g. 1, 2, 3, 4, 5, 6, 7.1, 7.2).
 
+Count the total number of notebooks across all sections - this is used for the badge in the root README.
+
 ## Step 3: Extract Content from Each Notebook
 
 Read each `.ipynb` file and extract:
@@ -48,9 +50,22 @@ Update the root `README.md` preserving existing content for unchanged notebooks.
 
 ```markdown
 # learn-claude-development
-Built with Claude API - For developers
+
+> [!NOTE]
+> This repo provides a quick, high-level overview of Claude API features through code samples and related outputs - ideal for fast reference. For deeper learning, refer to the [official course](https://anthropic.skilljar.com/claude-with-the-anthropic-api) or [API documentation](https://docs.anthropic.com/en/api). Some topics covered here go beyond the course material and are based on the API documentation directly.
+
+<details>
+<summary><strong>Quick Start</strong></summary>
+
+1. Install dependencies: `pip install anthropic python-dotenv`
+2. Create a `.env` file with `ANTHROPIC_API_KEY=sk-ant-...`
+3. Open any notebook: `jupyter notebook`
+
+</details>
 
 ## <N>. <Section Name (spaces)>
+
+<One-line description from the section README (the line after `# Title`).>
 
 | # | Topic | Summary |
 |---|-------|---------|
@@ -58,13 +73,25 @@ Built with Claude API - For developers
 ...
 
 (repeat ## block for each section, in order)
+
+---
+
+## Resources
+
+- [Anthropic Academy - Build with Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api)
+- [Anthropic API Reference](https://docs.anthropic.com/en/api)
+- [Anthropic Python SDK](https://github.com/anthropics/anthropic-sdk-python)
 ```
 
 Rules:
+- Replace `<TOTAL_COUNT>` in the Notebooks badge with the actual count from Step 2
 - Section heading uses the directory name with underscores replaced by spaces, prefixed by section number and a dot (e.g. `## 1. Claude API Basics`)
+- Each section heading is followed by the one-line description from that section's README (the line immediately after the `# Title` heading)
 - Table rows use the notebook number (including sub-numbers like `7.1`), the topic name as a hyperlink to the notebook file (path relative to repo root, e.g. `[Making a Request](1_Claude_API_Basics/1_Making_request.ipynb)`), and the short summary
 - No trailing blank lines between sections - just one blank line before each `##`
 - Do NOT include any reference to `OTHERS/`
+- If the Learning Path table needs a new row for a new section, add it in order
+- Always end with the `---` separator and `## Resources` footer
 
 ## Step 5: Update Section `README.md` Files
 
@@ -83,7 +110,7 @@ For each section, update `<section_dir>/README.md` preserving existing content f
 
 ---
 
-## Notebooks
+## Topics
 
 ### <N>. <Title>
 
@@ -114,6 +141,54 @@ For each section, update `<section_dir>/README.md` preserving existing content f
 
 No `---` separator between sub-notebooks under the same parent, but add `---` after the last sub-notebook before the next top-level `###`.
 
+## Step 5.5: Alert Migration
+
+Scan all section READMEs for old-style blockquote callouts and convert them to GFM alerts:
+
+| Pattern | Replace With |
+|---------|-------------|
+| `> **Note:**` or `> **Note**:` | `> [!NOTE]` |
+| `> **Tip:**` or `> **Tip**:` | `> [!TIP]` |
+| `> **Important:**` or `> **Important**:` | `> [!IMPORTANT]` |
+| `> **Constraints:**` or `> **Constraints**:` | `> [!IMPORTANT]` |
+| `> **Warning:**` or `> **Warning**:` | `> [!WARNING]` |
+| `> **Tradeoff:**` or `> **Tradeoff**:` | `> [!WARNING]` |
+| `> **Caution:**` or `> **Caution**:` | `> [!CAUTION]` |
+
+When converting, remove the bold label text and keep only the content after the colon. For example:
+- `> **Note:** The tool_use_id must match...` becomes `> [!NOTE]\n> The tool_use_id must match...`
+
+This is a one-time migration. Once converted, the "preserve existing" rule in Step 3.5 applies to the newly converted GFM alerts.
+
+## GitHub Flavored Markdown Alerts
+
+When generating or preserving README content, use GFM alert syntax instead of plain blockquotes for callouts. Match the alert type to the intent:
+
+| Alert | Syntax | Use for |
+|-------|--------|---------|
+| Note | `> [!NOTE]` | Supplementary context, clarifications |
+| Tip | `> [!TIP]` | Best practices, recommendations, helpful hints |
+| Important | `> [!IMPORTANT]` | Constraints, required steps, things that must not be skipped |
+| Warning | `> [!WARNING]` | Common mistakes, side effects, things that can go wrong |
+| Caution | `> [!CAUTION]` | Destructive or irreversible actions, data loss risk |
+
+Format:
+
+```markdown
+> [!TIP]
+> Use specific instructions, guidelines, or examples for better results.
+
+> [!IMPORTANT]
+> `budget_tokens` must be at least 1024 and `max_tokens` must be greater than `budget_tokens`.
+
+> [!WARNING]
+> Never modify thinking blocks - modifying the `signature` field will cause API errors.
+```
+
+Apply this when:
+- Writing new notebook entries (generate alerts instead of plain `> blockquotes` for callouts)
+- Preserving existing content: do NOT reformat existing GFM alerts
+
 ## Step 6: Verify
 
 After writing all READMEs:
@@ -122,5 +197,7 @@ After writing all READMEs:
 2. **No OTHERS references:** Grep all generated READMEs to confirm `OTHERS` does not appear anywhere.
 3. **Link correctness:** Confirm all notebook links in the root README use paths relative to the repo root (e.g. `1_Claude_API_Basics/1_Making_request.ipynb`). Section READMEs should NOT contain notebook file links.
 4. **Count match:** Confirm the total notebook count in the root README matches the sum across all section READMEs.
+5. **Badge count:** Confirm the Notebooks badge count matches the total notebook count.
+6. **Alert syntax:** Grep all READMEs for remaining old-style `> **Note:**`, `> **Tradeoff**`, `> **Constraints:**` patterns - should find none.
 
 Report the results of these checks to the user.
