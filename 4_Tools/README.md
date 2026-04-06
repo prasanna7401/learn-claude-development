@@ -24,7 +24,7 @@ Extend Claude's capabilities by giving it access to external functions - real-ti
 
 ---
 
-## Notebooks
+## Topics
 
 ### 1. Basic Flow
 
@@ -87,7 +87,8 @@ Walk through the complete tool use lifecycle step by step: define a Python funct
 </tr>
 </table>
 
-> **Note:** The `tool_use_id` in the result must match the `id` from the corresponding `ToolUseBlock`. This is how the API links results back to requests.
+> [!NOTE]
+> The `tool_use_id` in the result must match the `id` from the corresponding `ToolUseBlock`. This is how the API links results back to requests.
 
 #### Tool Request Flow
 
@@ -170,7 +171,8 @@ Sometimes you want to stream tool arguments immediately - for example, to displa
 Enable it by adding `fine_grained=True` to your tool schema.
 
 
-> **Tradeoff**: Because server-side validation is disabled, you are responsible for validating the final assembled JSON on the client side before using it.
+> [!WARNING]
+> Because server-side validation is disabled, you are responsible for validating the final assembled JSON on the client side before using it.
 
 ![ToolStreaming](../assets/Tool_Streaming.png)
 

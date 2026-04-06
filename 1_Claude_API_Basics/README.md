@@ -10,7 +10,7 @@ Core fundamentals of the Anthropic Claude API - from making your first request t
 
 ---
 
-## Notebooks
+## Topics
 
 ### 1. Making a Request
 

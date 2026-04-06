@@ -27,7 +27,7 @@ LLMs have a training cutoff and no access to private or domain-specific data. RA
 
 ---
 
-## Notebooks
+## Topics
 
 ### 1. Chunking Strategies
 
@@ -35,11 +35,9 @@ Before anything can be retrieved, documents must be split into chunks - small en
 
 Three core strategies:
 
-- **Size-based chunking** - split by fixed character or token count, optionally with overlap to avoid cutting sentences mid-thought
-- **Structure-based chunking** - split on natural document boundaries (paragraphs, headings, code blocks, markdown sections)
-- **Semantic chunking** - embed each sentence, measure similarity between adjacent sentences, and split where similarity drops - keeps topically coherent content together
-
-> **Tradeoff:** Size-based is fast and simple but ignores meaning. Semantic chunking produces the most coherent chunks but is slower and requires an embedding model upfront.
+- **Size-based chunking** - split by fixed character or token count, optionally with overlap to avoid cutting sentences mid-thought.
+- **Structure-based chunking** - split on natural document boundaries (paragraphs, headings, code blocks, markdown sections).
+- **Semantic chunking** - embed each sentence, measure similarity between adjacent sentences, and split where similarity drops - keeps topically coherent content together.
 
 **Key concepts:** fixed-size chunking, overlap, structure-aware splitting, semantic similarity, embedding-based segmentation
 
@@ -138,6 +136,6 @@ A chunk that ranks highly in both indexes accumulates score from both terms and 
 | Chunk B | 2 | 1 | 1/(1+2) + 1/(1+1) = 0.333 + 0.500 = 0.833 | - |
 | Chunk C | 3 | 2 | 1/(1+3) + 1/(1+2) = 0.250 + 0.333 = 0.583 | 3 |
 
-> **Note:** With k = 1, score differences are amplified, making the example easier to read. Production systems typically use k = 60 to reduce the influence of rank differences near the top.
+> With k = 1, score differences are amplified, making the example easier to read. Production systems typically use k = 60 to reduce the influence of rank differences near the top.
 
 **Key concepts:** multi-index retrieval, hybrid search, Reciprocal Rank Fusion (RRF), rank fusion, smoothing constant k, vector search, BM25, combined ranking

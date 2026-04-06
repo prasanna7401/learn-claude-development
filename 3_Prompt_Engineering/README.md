@@ -10,7 +10,7 @@ Techniques for writing effective prompts - clarity, directness, and specificity 
 
 ---
 
-## Notebooks
+## Topics
 
 ### 1. Advanced Prompt Evaluation Workflow
 

@@ -10,7 +10,7 @@ Systematic approaches to evaluating and scoring prompt quality using evaluation 
 
 ---
 
-## Notebooks
+## Topics
 
 ### 1. Prompt Eval Workflow
 
@@ -24,6 +24,4 @@ Build an end-to-end prompt evaluation pipeline: generate test datasets using a c
 
 Implement two grading approaches - model-based grading (LLM scores for quality, completeness, and reasoning) and code-based grading (programmatic syntax validation for JSON, Python, and regex) - then combine them into an averaged score.
 
-**Key concepts:** model-based grading, code-based grading, `grade_by_model()`, `grade_by_syntax()`, combined scoring
-
----
+**Key concepts:** model-based grading, code-based grading, combined scoring
