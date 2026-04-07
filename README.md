@@ -81,6 +81,12 @@ Unlock advanced Claude capabilities that go beyond standard text generation - ex
 | 4 | [Prompt Caching](6_Special_Features/4_Prompt_Caching.ipynb) | Mark request positions as cache breakpoints so repeated content is served from cache at a fraction of the normal input token cost |
 | 5 | [Code Execution and Files API](6_Special_Features/5_Code_Execution_and_FilesAPI.ipynb) | Run code analysis with Claude's built-in code execution tool on persistant files across requests using the Files API |
 
+## 7. MCP
+
+Give Claude access to external tools, documents, and commands through a standardized protocol - connect any data source or capability without custom integrations.
+
+*This section contains documentation and a CLI project example rather than notebooks. See [7_MCP/README.md](7_MCP/README.md) for details on MCP primitives (tools, resources, prompts), client/server setup, and the interactive CLI chatbot.*
+
 ---
 
 ## Resources

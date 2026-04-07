@@ -186,3 +186,7 @@ settings.local.json
 # Personal files
 OTHERS/**
 .backups/
+
+# Project files
+
+uv.lock
